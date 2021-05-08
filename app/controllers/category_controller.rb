@@ -1,5 +1,5 @@
 class CategoryController < ApplicationController
-  before_filter :set_category, only: [:show]
+  before_action :set_category, only: [:show]
 
   def index
     @categories = Category.all
@@ -12,3 +12,4 @@ class CategoryController < ApplicationController
   def set_category
     @category = Category.find(params[:id])
   end
+end

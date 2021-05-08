@@ -1,14 +1,14 @@
 class ProductController < ApplicationController
-  before_filter :set_item, only: [:show]
+  before_action :set_product, only: [:show]
   def index
-    @Product = Product.all
+    @products = Product.all
   end
 
   def show
   end
 
   private
-    def set_item
-      @item = Item.find(params[:id])
-    end
+  def set_product
+    @product = Product.find(params[:id])
+  end
 end
