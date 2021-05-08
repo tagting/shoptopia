@@ -1,0 +1,11 @@
+<h1>Category#show</h1>
+<p>Find me in app/views/category/show.html.erb</p>
+<div class="container">
+  <h1><%= @category.name%></h1>
+  <% @category.products.each do |product| %>
+    <ul>
+      <li><%= link_to product.title, product_path(product) %> | <strong><%= product.price %></strong> <%= button_to 'Add to Cart', line_items_path(item_id: product), class: "btn btn-primary" %>
+      </li>
+    </ul>
+  <% end %>
+</div>
