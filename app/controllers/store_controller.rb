@@ -1,6 +1,6 @@
 class StoreController < ApplicationController
   def index
     @products = Product.order(:title)
-    @categories = Catergory.order(:name)
+    @categories = Category.order(:name)
   end
 end
