@@ -1,0 +1,55 @@
+<div class="container">
+  <% if notice %>
+    <div class="alert alert-success" role="alert"><%= notice %></div>
+  <% end %>
+  <div class="row">
+    <div class="col-sm-12 col-md-10 col-md-offset-1">
+      <h2>Your Cart</h2>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Product</th>
+              <th>Quantity</th>
+              <th class="text-center">Price</th>
+              <th class="text-center">Total</th>
+            </tr>
+          </thead>
+      <% current_cart.line_items.each do |line_item| %>
+        <tbody>
+          <tr>
+            <td class="col-sm-8 col-md-6">
+              <h4 class="media-heading"><%= link_to line_item.product.title, product_path(line_item.item) %></h4>
+            </td>
+            <td class="col-sm-1 col-md-1" style="text-align: center">
+            <input type="text" class="form-control" id="exampleInputEmail1" value="<%= line_item.quantity %>" data-id="<%= line_item.id %>">
+            </td>
+            <td class="col-sm-1 col-md-1 text-center" id="price"><%= line_item.product.price %></td>
+            <td class="col-sm-1 col-md-1 text-center" id="sub-total"><%= (line_item.quantity * line_item.product.price)) %></td>
+            <td>
+            </td>
+          </tr>
+      <% end %>
+            <tr>
+              <td>   </td>
+              <td>   </td>
+              <td>   </td>
+              <td><h3>Total</h3></td>
+              <td class="text-right"><h3 class="total"><strong><strong><%= number_to_currency(to_currency(current_cart.total)) %></strong></h3></td>
+            </tr>
+            <tr>
+              <td>   </td>
+              <td>   </td>
+              <td>   </td>
+              <td>
+              <button type="button" class="btn btn-default">
+                <span class="glyphicon glyphicon-arrow-left"></span><%= link_to " Continue Shopping", store_path %>
+              </button></td>
+              <td id="stripe-button">
+                <%= render 'carts/stripe_modal' %>
+              </td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

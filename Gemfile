@@ -71,7 +71,12 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem "bootstrap-sass", "~> 3.1.1"
-gem "airbrake"
+
+
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'figaro'
+gem 'bulma-rails', '~> 0.6.1'
+gem 'simple_form', '~> 5.0'
+gem 'gravatar_image_tag', '~> 1.2'
+gem 'carrierwave'
+gem 'mini_magick'
