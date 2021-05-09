@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_09_195626) do
+ActiveRecord::Schema.define(version: 2021_05_06_173206) do
 
-  create_table "carts", force: :cascade do |t|
+  create_table "cart", force: :cascade do |t|
     t.integer "user_id"
     t.integer "product_id"
     t.integer "quantity"
@@ -29,9 +29,10 @@ ActiveRecord::Schema.define(version: 2021_05_09_195626) do
   end
 
   create_table "comments", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
     t.integer "user_id"
     t.integer "product_id"
-    t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -46,17 +47,18 @@ ActiveRecord::Schema.define(version: 2021_05_09_195626) do
 
   create_table "orders", force: :cascade do |t|
     t.integer "user_id"
-    t.decimal "total"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
     t.integer "cart_id"
     t.integer "quantity"
+    t.decimal "total", precision: 5, scale: 2, default: "0.0"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "products", force: :cascade do |t|
     t.string "title"
+    t.text "description"
     t.integer "inventory"
-    t.decimal "price"
+    t.decimal "price", precision: 5, scale: 2, default: "0.0"
     t.integer "category_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

@@ -1,6 +1,6 @@
-class CreateCartItems < ActiveRecord::Migration[6.1]
+class CreateCarts < ActiveRecord::Migration[6.1]
   def change
-    create_table :cart_items do |t|
+    create_table :cart do |t|
       t.integer :user_id
       t.integer :product_id
       t.integer :quantity

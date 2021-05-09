@@ -1,9 +1,9 @@
 class CommentsController < ApplicationController
-  before_action :set_comments, only: [:show, :edit, :update, :destroy]
+  before_action :set_comment, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @comments = Comments.all.order("created_at desc")
+    @comments = Comment.all.order("created_at desc")
   end
 
   def show
@@ -49,7 +49,7 @@ class CommentsController < ApplicationController
   end
 
   
-  def instrument_params
+  def comment_params
     params.require(:comment).permit(:description)
   end
 

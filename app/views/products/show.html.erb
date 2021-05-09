@@ -1,5 +1,9 @@
-<h1>Product#show</h1>
-<p>Find me in app/views/product/show.html.erb</p>
+
 <h1><%= @product.title %></h1>
-<h2><%= @product.price %></h2>
+<h2>$<%= @product.price %></h2>
+<div class="container">
+    <% @comments.each do |comment| %>
+        <%= link_to comment.title, comment_path(comment) %> | <strong><%= comment.description %></strong>
+    <% end %>
+</div>
 <%= button_to 'Add to Cart', line_items_path(product_id: @product), class: "btn btn-primary" %>

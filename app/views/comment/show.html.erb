@@ -1,0 +1,25 @@
+<% content_for :body_class, 'bg-light' %>
+
+<section class="section comment-show">
+  <div class="columns">
+    <div class="column is-8">
+      <h1 class="title is-2"><%= @comment.id %></h1>
+
+
+      <h3 class="subtitle is-4">Description</h3>
+      <%= @comment.description %>
+
+
+    
+    <div class="column is-3 is-offset-1">
+      <div class="bg-white pa4 border-radius-3">
+        <h4 class="title is-5 has-text-centered">Comments/h4>
+        <p class="has-text-centered mb4">Commented by <%= @instrument.user.name %></p>
+      </div>
+    </div>
+  </div>
+
+  <% if comment_author(@comment) %>
+    <%= link_to 'Edit', edit_comment_path(@comment), class: 'button' %>
+  <% end %>
+</section>
