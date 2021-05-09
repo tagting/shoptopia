@@ -35,6 +35,8 @@ group :development, :test do
   gem 'better_errors', '~> 2.4'
   gem 'guard', '~> 2.14', '>= 2.14.1'
   gem 'guard-livereload', '~> 2.5', '>= 2.5.2'
+  gem "pry"
+  gem 'stripe-ruby-mock'
 end
 
 group :development do
@@ -60,5 +62,16 @@ group :test do
   gem 'webdrivers'
 end
 
+group :production do
+  gem "pg"
+  gem "google-analytics-rails"
+  gem "rails_12factor"
+end
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem "bootstrap-sass", "~> 3.1.1"
+gem "airbrake"
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+gem 'figaro'
