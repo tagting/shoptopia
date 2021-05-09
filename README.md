@@ -1,4 +1,4 @@
-#Shoptopia: An eCommerence Store
+Shoptopia: An eCommerence Store
 
 ###About the Application
 Shoptopia is an online application that sells products to users. Users can buy items by adding it to a cart and then purchasing it through checkout. Users can also provide comments to product's show page. Users can also sign up for an account to be able to access more of the features that Shoptopia provides.
